@@ -7,33 +7,28 @@ import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
 /**
- * `play-list-slide`
+ * `play-list-indicator`
  * 
  * @demo index.html
- * @element play-list-slide
+ * @element play-list-indicator
  */
-export class PlayListSlide extends DDDSuper(I18NMixin(LitElement)) {
+export class PlayListIndicator extends DDDSuper(I18NMixin(LitElement)) {
 
   static get tag() {
-    return "play-list-slide";
+    return "play-list-indicator";
   }
 
   constructor() {
     super();
-    this.topHeading = "Top heading"
-    this.secondHeading = "Second Heading";
-    this.topHeading = {
-
-    }
-  
+    currIndex = 0;
   }
 
   // Lit reactive properties
   static get properties() {
     return {
       ...super.properties,
-      topHeading: { type: String },
-      secondHeading: { type: String },
+      currIndex: { type : Number },
+      slides: { type: Number}
     };
   }
 
@@ -46,16 +41,14 @@ export class PlayListSlide extends DDDSuper(I18NMixin(LitElement)) {
         color: var(--ddd-theme-primary);
         background-color: var(--ddd-theme-accent);
         font-family: var(--ddd-font-navigation);
-      
       }
       .wrapper {
         margin: var(--ddd-spacing-2);
         padding: var(--ddd-spacing-4);
         background-color: var(--ddd-theme-default-white);
-        border-radius: var(---ddd)
       }
       h3 span {
-        font-size: var(--play-list-slide-label-font-size, var(--ddd-font-size-s));
+        font-size: var(--play-list-indicator-label-font-size, var(--ddd-font-size-s));
       }
     `];
   }
@@ -69,4 +62,4 @@ export class PlayListSlide extends DDDSuper(I18NMixin(LitElement)) {
   }
 }
 
-globalThis.customElements.define(PlayListSlide.tag, PlayListSlide);
+globalThis.customElements.define(PlayListIndicator.tag, PlayListIndicator);

@@ -1,51 +1,65 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <base href="/" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="Description" content="Demonstration for play-list-project" />
+    <script type="module" src="./play-list-project.js"></script>
+    <script type="module" src="./play-list-slide.js"></script>
+    <script type="module" src="./play-list-controls.js"></script>
 
-<head>
-  <base href="/">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="Description" content="Demonstration for play-list-project">
+    <style>
+      :root,
+      html,
+      body {
+        margin: var(--ddd-spacing-0);
+        padding: var(--ddd-spacing-0);
+      }
+    </style>
+    <title>play-list-project</title>
+  </head>
 
-  <style>
-    :root, html, body {
-      margin: var(--ddd-spacing-0);
-      padding: var(--ddd-spacing-0);
-    }
-    #demo {
-      margin: var(--ddd-spacing-2);
-    }
-    play-list-project {
-      margin: var(--ddd-spacing-2);
-      border: var(--ddd-border-md);
-      border-radius: var(--ddd-radius-lg);
-    }
-    play-list-project:hover {
-      box-shadow: var(--ddd-boxShadow-sm);
-    }
-    #example {
-      --play-list-project-font-size: var(--ddd-font-size-l);
-      background-color: var(--ddd-accent-2);
-      color: var(--ddd-primary-17);
-    }
-  </style>
-  <title>play-list-project</title>
-</head>
-
-<body>
-  <play-list-project index="3">
-  <play-list-slide top-heading="Top line heading" second-heading="Slide 1, sub-heading">
-    <p>A whole bunch of content in here</p>
-  </play-list-slide>
-<play-list-slide top-heading="Top line heading" second-heading="Slide 1, sub-heading">
-    <p>A whole bunch of content in here</p>
-  </play-list-slide>
-<play-list-slide top-heading="Top line heading" second-heading="Slide 1, sub-heading">
-    <p>A whole bunch of content in here</p>
-  </play-list-slide>
-<play-list-slide top-heading="Top line heading" second-heading="Slide 1, sub-heading">
-    <p>A whole bunch of content in here</p>
-  </play-list-slide>
-</play-list-project>
-</body>
+  <body>
+    <play-list-project>
+      <play-list-slide
+        slot="slides"
+        topHeading="Top line heading"
+        secondHeading="Slide 1, sub-heading"
+      >
+        <p>A whole bunch of content in here</p>
+      </play-list-slide>
+       <play-list-controls slot="controls"> </play-list-controls>     
+    </play-list-project>
+  
+    <play-list-project index="3">
+      <play-list-slide
+        topHeading="Top line heading"
+        secondHeading="Slide 1, sub-heading"
+      >
+        <p>A whole bunch of content in here</p>
+      </play-list-slide>
+      <play-list-slide
+        topHeading="Top line heading"
+        secondHeading="Slide 1, sub-heading"
+      >
+        <p>A whole bunch of content in here</p>
+      </play-list-slide>
+      <play-list-slide
+        topHeading="Top line heading"
+        secondHeading="Slide 1, sub-heading"
+      >
+        <p>A whole bunch of content in here</p>
+      </play-list-slide>
+      <play-list-slide
+        topHeading="Top line heading"
+        secondHeading="Slide 1, sub-heading"
+      >
+        <p>A whole bunch of content in here</p>
+      </play-list-slide>
+    </play-list-project>
+  </body>
 </html>
