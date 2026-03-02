@@ -22,9 +22,7 @@ export class PlayListSlide extends DDDSuper(I18NMixin(LitElement)) {
     super();
     this.topHeading = "Top heading"
     this.secondHeading = "Second Heading";
-    this.topHeading = {
-
-    }
+    this.topHeading
   
   }
 
@@ -42,11 +40,14 @@ export class PlayListSlide extends DDDSuper(I18NMixin(LitElement)) {
     return [super.styles,
     css`
       :host {
-        display: block;
+        display: none;
         color: var(--ddd-theme-primary);
         background-color: var(--ddd-theme-accent);
         font-family: var(--ddd-font-navigation);
       
+      }
+      :host[active] {
+        display: block;
       }
       .wrapper {
         margin: var(--ddd-spacing-2);
@@ -56,6 +57,9 @@ export class PlayListSlide extends DDDSuper(I18NMixin(LitElement)) {
       }
       h3 span {
         font-size: var(--play-list-slide-label-font-size, var(--ddd-font-size-s));
+      }
+      p { 
+        color: blue;
       }
     `];
   }

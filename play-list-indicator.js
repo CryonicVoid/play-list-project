@@ -20,14 +20,14 @@ export class PlayListIndicator extends DDDSuper(I18NMixin(LitElement)) {
 
   constructor() {
     super();
-    currIndex = 0;
+
   }
 
   // Lit reactive properties
   static get properties() {
     return {
       ...super.properties,
-      currIndex: { type : Number },
+      index: { type : Number },
       slides: { type: Number}
     };
   }
@@ -36,19 +36,25 @@ export class PlayListIndicator extends DDDSuper(I18NMixin(LitElement)) {
   static get styles() {
     return [super.styles,
     css`
-      :host {
-        display: block;
-        color: var(--ddd-theme-primary);
-        background-color: var(--ddd-theme-accent);
-        font-family: var(--ddd-font-navigation);
+         :host {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin: 8px 0;
       }
-      .wrapper {
-        margin: var(--ddd-spacing-2);
-        padding: var(--ddd-spacing-4);
-        background-color: var(--ddd-theme-default-white);
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: gray;
+        cursor: pointer;
+        transition: transform 0.2s;
       }
-      h3 span {
-        font-size: var(--play-list-indicator-label-font-size, var(--ddd-font-size-s));
+
+      .dot.active {
+        background-color: blue;
+        transform: scale(1.3);
       }
     `];
   }
@@ -56,9 +62,13 @@ export class PlayListIndicator extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html`
-<div class="wrapper">
-      ${this.topHeading}
-</div>`;
+      ${Array.from({ length: this.slides }).map(
+        (_, i) => html`<div
+          class="dot ${i === this.index ? "active" : ""}"
+          @click=${() => this.dispatchEvent(new CustomEvent("jump-to-slide", { detail: i, bubbles: true, composed: true }))}
+        ></div>`
+      )}
+    `;
   }
 }
 
